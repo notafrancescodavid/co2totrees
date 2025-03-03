@@ -1,16 +1,9 @@
 import { removeRandomObjects } from "./utils";
 
-export type TreesInputStructure = Readonly<{
-    smTrees: number,
-    mdTrees: number,
-    lgTrees: number,
-    xlTrees: number
-}>;;
-
 export type Co2ToTreesCalculatorInput = {
     personAge: number;
     yearlyEmissionsInTons?: number;
-    treesPlantedEachYear: TreesInputStructure;
+    treesPlantedEachYear: Readonly<number>;
 }
 
 export type StatisticsResult = {
@@ -29,13 +22,12 @@ type Co2ToTreesCalculatorFields = Required<Readonly<Co2ToTreesCalculatorInput>> 
     natureCo2SinkReductionRate: Readonly<number>;
     yearlyKgNatureCo2SinkWorldwide: Readonly<number>;
     peakWorlwidePopulationPredicted: Readonly<number>;
-    treeSizeMultiplier: TreesInputStructure;
     yearlyTreeDeathRate: Readonly<number>;
+    treeSizeMultiplier: Readonly<number>;
 }
 
 type Tree = {
     age: number;
-    type: keyof TreesInputStructure;
 }
 
 /**
@@ -102,12 +94,7 @@ export class Co2ToTreesCalculator {
             // the starting emissions of a person in Tons
             yearlyEmissionsInTons: 9,
             // a multiplier used as an assumption to how much carbon each tree each year absorbs
-            treeSizeMultiplier: {
-                smTrees: 2,
-                mdTrees: 4,
-                lgTrees: 6,
-                xlTrees: 8
-            },
+            treeSizeMultiplier: 3.5,
         } as const
 
         this.fields = {
@@ -129,9 +116,9 @@ export class Co2ToTreesCalculator {
         return this.fields.yearlyEmissionsInTons * 1000;
     }
 
-    private getTreeEmissionsAbsorbed(treeSizeMultiplier: number, treeAge: number) {
+    private getTreeEmissionsAbsorbed(treeAge: number) {
         if(treeAge === 0) return 1;
-        else return (Math.log2(treeAge) * treeSizeMultiplier) + 3;
+        else return (Math.log2(treeAge) * this.fields.treeSizeMultiplier) + 3;
     }
 
     // returns the cumulative emissions of a specific year
@@ -162,23 +149,18 @@ export class Co2ToTreesCalculator {
 
     private getTreesPlantedThisYear() {
         const treesPlantedThisYear: Array<Tree> = [];
-        const treeSizesKeys = Object.keys(this.fields.treesPlantedEachYear) as Array<keyof TreesInputStructure>;
-        treeSizesKeys.map(treeSize => {
-            for(let i = 0; i < this.fields.treesPlantedEachYear[treeSize]; i++) {
-                treesPlantedThisYear.push({
-                    age: 1,
-                    type: treeSize
-                })
-            }
-        });
+        for(let i = 0; i < this.fields.treesPlantedEachYear; i++) {
+            treesPlantedThisYear.push({
+                age: 1,
+            });
+        }
 
         return treesPlantedThisYear;
     }
     
     private getSumOfAbsorbedCo2ThisYear() {
         return this.trees.map(t => {
-            const multiplier = this.fields.treeSizeMultiplier[t.type];
-            return this.getTreeEmissionsAbsorbed(multiplier, t.age);
+            return this.getTreeEmissionsAbsorbed(t.age);
         }).reduce((emAbs1, emAbs2) => emAbs1 + emAbs2, 0);
     }
 

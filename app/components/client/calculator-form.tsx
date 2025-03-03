@@ -44,10 +44,9 @@ export default function CalculatorForm({ convertAndShowChart }: { convertAndShow
     return <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
                 <CardHeader>
-                    <CardTitle className="text-3xl">Co2 to Trees Converter</CardTitle>
+                    <CardTitle className="text-3xl">When will I be Carbon Negative? 🤔</CardTitle>
                     <CardDescription className="text-md">
-                        Imagine you plant some trees every year. These trees will grow mature as small, medium and large sized trees.
-                        Discover how many trees you need to offset your Co2 Emissions and how much time you need to be Carbon Negative
+                        Discover how much time you need to offset your lifetime Co2 Emissions and be Carbon Negative depending on how many trees you plant.
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
@@ -85,8 +84,6 @@ export default function CalculatorForm({ convertAndShowChart }: { convertAndShow
                                 )}
                             />
                         )}
-                        {form.formState.errors[""]?.message && 
-                            <p className="text-red-500">{form.formState.errors[""].message}</p>}
                     </div>
                 </div>
                 </CardContent>

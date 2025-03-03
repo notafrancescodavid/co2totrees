@@ -3,8 +3,8 @@ import Co2ToTreeCalculatorCard from "./components/client/co2-to-tree-calculator-
 import PageDescription from "./components/server/page-description";
 
 export default function Home() {
-  const serviceExplanationTitle = "How many trees do you need to absorb all your Co2 emissions?";
-  const serviceExplanationSubTitle = "Imagine every year you plant some trees. You decide to plant trees that when mature can become small, mid-sized, big or huge. Use the calculator to see how many you need to plant each year to become Carbon Negative.";
+  const serviceExplanationTitle = "How much time do you need to absorb all your Co2 emissions?";
+  const serviceExplanationSubTitle = "Imagine every year you plant some trees. The trees you plant each year absorb more and more Co2 as they grow. Use the calculator to see, depending on how many trees you plant each year, how much time you would need to become Carbon Negative.";
 
   return <>
     <PageDescription title={serviceExplanationTitle} subTitle={serviceExplanationSubTitle}/>

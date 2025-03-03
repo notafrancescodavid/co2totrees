@@ -57,8 +57,13 @@ export default function CalculatorDetails({ className = "" }) {
                         (This assumption is optimistic, as emissions are unfortunately still rising globally).
                     </li>
                     <li>
-                        Furthermore, the calculation considers a minimum amount of yearly personal emissions of 20% compared to the one you insert in the input.
+                        The calculation considers a minimum amount of yearly personal emissions of 20% compared to the one you insert in the input.
                         This choice comes from the consideration that there will always be antropogenic sources of emissions that we cannot avoid.
+                    </li>
+                    <li>
+                        Different trees in different places absorb different amounts of Co2. 
+                        This calculation considers an average absorbtion based on tree size, 
+                        assuming most planted trees are small when fully grown (e.g. olive trees) and some others are medium or big (e.g. quercus or sequoia).
                     </li>
                 </ul>
                 </AccordionContent>
