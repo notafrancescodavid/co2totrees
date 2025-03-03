@@ -38,7 +38,7 @@ export default function CalculatorDetails({ className = "" }) {
                             This assumes that alive trees at first absorb less carbon when small, and slowly absorb more until a point of maturity where they emit as much as they absorb.
                         </li>
                         <li>
-                            Survival Rate: each year 80% of trees will survive, hence they 20% that don't are removed from the calculation.
+                            Survival Rate: each year 80% of trees will survive, hence they 20% that do not are removed from the calculation.
                             (This assumption is optimistic, generally global survival rate of planted trees is around 70%)
                         </li>
                         <li>

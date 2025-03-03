@@ -1,0 +1,50 @@
+name: publish
+
+on:
+  push:
+    branches: ["main"]
+
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.actor }}/co2totrees:latest
+
+jobs:
+  publish:
+    name: publish image
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login
+        run: |
+          echo ${{ secrets.CR_PAT_CN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build and Publish
+        run: |
+          docker build . --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+  deploy:
+    needs: publish
+    name: deploy image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install ssh keys
+        # check this thread to understand why its needed:
+        # <https://stackoverflow.com/a/70447517>
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY_CN }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST_CN }} > ~/.ssh/known_hosts
+      - name: connect and pull
+        run: >
+          ssh ${{ secrets.SSH_USER_CN }}@${{ secrets.SSH_HOST_CN }} 
+          "cd ~ && 
+          echo ${{ secrets.CR_PAT_CN }} | docker login ${{ env.REGISTRY }} -u ${{ github.actor }} --password-stdin && 
+          docker image pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} && 
+          docker build . -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} && 
+          docker run . -p 8080:3000 ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} && 
+          exit"
+      - name: cleanup
+        run: rm -rf ~/.ssh

@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
-import { CardHeader, CardDescription, CardContent, CardFooter, CardTitle, Card } from "@/components/ui/card";
+import { CardHeader, CardDescription, CardContent, CardTitle } from "@/components/ui/card";
 import { MouseEventHandler, useMemo } from "react";
 import { CalculatorSchemaType } from "../validators/calculator-schema";
 import { Co2ToTreesCalculator } from "@/lib/Co2ToTreesCalculator";

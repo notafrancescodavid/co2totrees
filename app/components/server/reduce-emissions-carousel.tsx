@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
   Carousel,
@@ -7,7 +6,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import Link from "next/link";
 import ButtonLink from "./button-link";
 import LogoImage from "../client/logo-image";
 
@@ -132,9 +130,11 @@ const items: CarouselItem[] = [
     {
         title: 'Join us and donate to Non-profits 🌳',
         todos: [
-            <div className="flex min-w-fit justify-center">
-                <LogoImage className="h-11 w-auto"/>
-            </div>,
+            <>
+                <div className="flex min-w-fit justify-center">
+                    <LogoImage className="h-11 w-auto" />
+                </div>
+            </>,
             <>
                 <div>
                     Consider donating to non-profits and Join us at Carbon Negative, be an activist, help nature and fight climate change. You can contact us on Facebook or Instagram and ask: how can I help?
