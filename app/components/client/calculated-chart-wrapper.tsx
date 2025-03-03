@@ -45,7 +45,7 @@ export default function CalculatedChartWrapper({ backToCalculator, data } : Calc
             <div className="text-xl mt-5 pl-6">
                {stats.yearsToBecomeCarbonNegative ? <>
                         You will become Carbon Negative in <span className="text-lg font-semibold">{(new Date()).getFullYear() + stats.yearsToBecomeCarbonNegative}</span>.
-                        You would need <span className="text-lg font-semibold">{stats.yearsToBecomeCarbonNegative} years</span> to absorb all your Co2 emissions by planting every year:
+                        You will need <span className="text-lg font-semibold">{stats.yearsToBecomeCarbonNegative} years</span> to absorb all your Co2 emissions by planting every year:
                   </>
                   : 'You would not be able to absorb all your Co2 emissions in your lifetime by planting every year:'
                }
