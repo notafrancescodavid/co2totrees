@@ -34,7 +34,7 @@ jobs:
         # check this thread to understand why its needed:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          install -m 600 -D /dev/null ~/.ssh/${{ secrets.SSH_KEY_FILENAME_CN }}
           echo "${{ secrets.SSH_PRIVATE_KEY_CN }}" > ~/.ssh/${{ secrets.SSH_KEY_FILENAME_CN }}
           ssh-keyscan -H ${{ secrets.SSH_HOST_CN }} > ~/.ssh/known_hosts
       - name: connect and pull
