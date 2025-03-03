@@ -99,28 +99,38 @@ const items: CarouselItem[] = [
             <>
                 Be an active part of the political speech and regulations. 
                 For example propose laws with the EU citizens initiative.
-                <ButtonLink className="inline-block" href="https://citizens-initiative.europa.eu/_en">
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://citizens-initiative.europa.eu/_en">
                     Check the EU citizens initiative
                 </ButtonLink>
             </>
         ]
     },
     {
-        title: 'Services 🌼🌲🏡',
+        title: 'Services ⚡🔎💸',
         todos: [ 
             <>
-                Use Ecosia search engine. You search and they plant trees for free!
-                <ButtonLink className="inline-block" href="https://www.ecosia.org/">Go to Ecosia</ButtonLink>
+                <div>
+                    Use Smart Energy Solutions like 1Komma5.
+                </div>
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://1komma5.com/en/">Go to 1Komma5</ButtonLink>
             </>,
             <>
-                Switch to sustainable banking alternatives, a good example is the bank Tomorrow, 
-                they use part of their revenue for Clean Projects and investments, have a look!
-                <ButtonLink className="inline-block" href="https://www.tomorrow.one/en-EU/">Go To Tomorrow</ButtonLink>
+                <div>
+                    Use Ecosia search engine. You search and they plant trees for free!
+                </div>
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://www.ecosia.org/">Go to Ecosia</ButtonLink>
+            </>,
+            <>
+                <div>
+                    Switch to sustainable banking alternatives, a good example is the bank Tomorrow, 
+                    they use part of their revenue for Clean Projects and investments, have a look!
+                </div>
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://www.tomorrow.one/en-EU/">Go To Tomorrow</ButtonLink>
             </>
         ]
     },
     {
-        title: 'Join Us and donate to Non-profits 🌳',
+        title: 'Join us and donate to Non-profits 🌳',
         todos: [
             <div className="flex min-w-fit justify-center">
                 <LogoImage className="h-11 w-auto"/>
@@ -129,8 +139,8 @@ const items: CarouselItem[] = [
                 <div>
                     Consider donating to non-profits and Join us at Carbon Negative, be an activist, help nature and fight climate change. You can contact us on Facebook or Instagram and ask: how can I help?
                 </div>
-                <ButtonLink className="inline-block w-1/2" href="https://www.facebook.com/carbonegativ">Facebook</ButtonLink>
-                <ButtonLink className="inline-block w-1/2" href="https://www.instagram.com/carbon_negative_/">Instagram</ButtonLink>
+                <ButtonLink buttonClass="min-w-full" className="inline-block w-1/2 px-1" href="https://www.facebook.com/carbonegativ">Facebook</ButtonLink>
+                <ButtonLink buttonClass="min-w-full" className="inline-block w-1/2 px-1" href="https://www.instagram.com/carbon_negative_/">Instagram</ButtonLink>
             </>,
             
         ]
