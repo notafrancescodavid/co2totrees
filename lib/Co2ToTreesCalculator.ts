@@ -1,34 +1,6 @@
-import { removeRandomObjects } from "./utils";
-
-export type Co2ToTreesCalculatorInput = {
-    personAge: number;
-    yearlyEmissionsInTons?: number;
-    treesPlantedEachYear: Readonly<number>;
-}
-
-export type StatisticsResult = {
-    cumulativeYearlyEmissions: number[];
-    cumulativeYearlyEmissionsAbsorbedByTrees: number[];
-    cumulativeYearlyEmissionsAbsorbedByCarbonSinks: number[];
-    cumulativeEmittedMinusAbsorbed: number[];
-    yearlyEmittedMinusAbsorbed: number[];
-    yearsToBecomeCarbonNegative: number | undefined;
-};
-
-type Co2ToTreesCalculatorFields = Required<Readonly<Co2ToTreesCalculatorInput>> & {
-    humansOnEarth: number;
-    numberOfYearsOfAnalysis: Readonly<number>;
-    emissionReductionRate: Readonly<number>;
-    natureCo2SinkReductionRate: Readonly<number>;
-    yearlyKgNatureCo2SinkWorldwide: Readonly<number>;
-    peakWorlwidePopulationPredicted: Readonly<number>;
-    yearlyTreeDeathRate: Readonly<number>;
-    treeSizeMultiplier: Readonly<number>;
-}
-
-type Tree = {
-    age: number;
-}
+import { CALCULATOR } from "./constants";
+import { Co2ToTreesCalculatorFields, Co2ToTreesCalculatorInput, StatisticsResult, Tree } from "./types";
+import { kgToTons, removeRandomObjects, tonsToKg } from "./utils";
 
 /**
  * This class is responsible to calculate several statistics 
@@ -67,40 +39,18 @@ export class Co2ToTreesCalculator {
        and planted trees each year starting from a person age until lifeExpetancyInDevelopedCountries */
     private readonly yearlyEmittedMinusAbsorbed: number[];
 
-    /* average life expetancy in developed countries */
-    private readonly lifeExpetancyInDevelopedCountries = 80;
-
-    /* the number of years needed to reach a breakeven point (i.e. to become Carbon Negative) */
+    /* The array of ALIVE trees that cumulative absorb emissions in the calculation each year */
     private trees: Tree[];
 
     /* the number of years needed to reach a breakeven point (i.e. to become Carbon Negative) */
     private yearsToBecomeCarbonNegative?: number;
 
     public constructor(input: Co2ToTreesCalculatorInput) {
-        
-        const defaultCalculatorFields = {
-            // This is the current number of humans on earth (default to 2025)
-            humansOnEarth: 8100000000,
-            // Society is reducing its emissions. This rate is an assumption of the rate of yearly emissions reduction
-            emissionReductionRate: 0.01,
-            // Nature carbon sinks slowly absorb less. This rate is the rate of nature absorbtion reduction
-            natureCo2SinkReductionRate: 0.01,
-            // 18.5 gigatons estimated to be asborbed by nature each year
-            yearlyKgNatureCo2SinkWorldwide: 18500000000000,
-            // 10.5 billion predicted as peak worldwide population by 2100
-            peakWorlwidePopulationPredicted: 10500000000,
-            // the rate at which trees die each year
-            yearlyTreeDeathRate: 0.2,
-            // the starting emissions of a person in Tons
-            yearlyEmissionsInTons: 9,
-            // a multiplier used as an assumption to how much carbon each tree each year absorbs
-            treeSizeMultiplier: 3.5,
-        } as const
 
         this.fields = {
-            ...defaultCalculatorFields,
+            ...CALCULATOR.DEFAULT_VALUES,
             ...input,
-            numberOfYearsOfAnalysis: this.lifeExpetancyInDevelopedCountries - input.personAge
+            numberOfYearsOfAnalysis: CALCULATOR.LIFE_EXPECTANCY_DEVELOPED_COUNTRIES - input.personAge
         }
 
         this.cumulativeYearlyEmissions = [];
@@ -109,16 +59,14 @@ export class Co2ToTreesCalculator {
         this.cumulativeEmittedMinusAbsorbed = [];
         this.yearlyEmittedMinusAbsorbed = [];
         this.trees = [];
-        
     }
 
     private getStartingYearlyEmissionsInKg() {
-        return this.fields.yearlyEmissionsInTons * 1000;
+        return tonsToKg(this.fields.yearlyEmissionsInTons);
     }
 
     private getTreeEmissionsAbsorbed(treeAge: number) {
-        if(treeAge === 0) return 1;
-        else return (Math.log2(treeAge) * this.fields.treeSizeMultiplier) + 3;
+        return (Math.log2(treeAge) * this.fields.treeSizeMultiplier) + 3;
     }
 
     // returns the cumulative emissions of a specific year
@@ -140,7 +88,7 @@ export class Co2ToTreesCalculator {
      */
     private getEmissionsReductionRateThisYear(
         emissionsReductionRateForCurrentYear: Readonly<number>, 
-        maxReductionRate: Readonly<number> = 0.08) {
+        maxReductionRate = CALCULATOR.MAX_YEARLY_EMISSIONS_REDUCTION_RATE) {
             return Math.min(
                 emissionsReductionRateForCurrentYear + this.fields.emissionReductionRate, 
                 maxReductionRate
@@ -149,15 +97,23 @@ export class Co2ToTreesCalculator {
 
     private getTreesPlantedThisYear() {
         const treesPlantedThisYear: Array<Tree> = [];
+        // trees are planted with a specific age, this age is assigned randomly
+        // with values from 1 to 6 (years old)
+        const randomTreePlantedAge = Math.floor(
+            (Math.random() * CALCULATOR.MAX_TREE_PLANTED_AGE) + CALCULATOR.MIN_TREE_PLANTED_AGE
+        );
         for(let i = 0; i < this.fields.treesPlantedEachYear; i++) {
             treesPlantedThisYear.push({
-                age: 1,
+                age: randomTreePlantedAge,
             });
         }
 
         return treesPlantedThisYear;
     }
     
+    /**
+     * @returns the sum of all co2 absorbed by the "alive" trees each year
+     */
     private getSumOfAbsorbedCo2ThisYear() {
         return this.trees.map(t => {
             return this.getTreeEmissionsAbsorbed(t.age);
@@ -172,16 +128,21 @@ export class Co2ToTreesCalculator {
      */
     private computeOperationsOnTrees(inputTrees: Tree[]) {
         // increment the trees age by one year
-        let trees = this.getTreesWithAgeIncrementedByOne(inputTrees);
+        let trees = this.getTreesWithAgeIncremented(inputTrees);
 
         // make some trees randomly dies as it would happen in nature
-        trees = this.getTreesRemovingRandomlyDiedOnes(trees);
+        // trees that are dead are simply removed, i.e. in trees array only alive trees remain
+        trees = this.removeRandomlyDiedTrees(trees);
 
-         // add the trees that each year are planted
+        // adds the trees that each year are planted
         return [...trees, ...this.getTreesPlantedThisYear()];
     }
 
-    private getTreesWithAgeIncrementedByOne(inputTrees: Tree[]) {
+    /**
+     * @param inputTrees 
+     * @returns the inputTrees with the field age incremented
+     */
+    private getTreesWithAgeIncremented(inputTrees: Tree[]) {
         return inputTrees.map(t => ({
             ...t,
             age: t.age + 1
@@ -191,7 +152,7 @@ export class Co2ToTreesCalculator {
     /**
      * @returns an array of trees with the "died" ones removed
      */
-    private getTreesRemovingRandomlyDiedOnes(inputTrees: Tree[]) {
+    private removeRandomlyDiedTrees(inputTrees: Tree[]) {
         const trees = [ ...inputTrees ];
         const numberOfTreesToRemove = trees.length * this.fields.yearlyTreeDeathRate;
         return removeRandomObjects(trees, numberOfTreesToRemove);
@@ -218,6 +179,13 @@ export class Co2ToTreesCalculator {
     }
 
     
+    /**
+     * computes several statistics, such as the cumulative lifetime emissions, the cumulative lifetime absorbtion
+     * the cumulative difference of the two just mentioned. The cumulative absorbed emissions by Nature Sinks,
+     * the cumulative absorbed by the trees, the years to become carbon negative.
+     * Internally it computes yearly statistics used to compute the cumulative statistics iteratively
+     * @returns the statistics
+     */
     public performEmissionAnalysis(): StatisticsResult {
         let yearlyEmissionsInKg = this.getStartingYearlyEmissionsInKg();
         let emissionsReductionRateForThisYear = this.fields.emissionReductionRate;
@@ -282,11 +250,11 @@ export class Co2ToTreesCalculator {
 
     private getStatistics() {
         return {
-           cumulativeYearlyEmissions: this.cumulativeYearlyEmissions,
-           cumulativeYearlyEmissionsAbsorbedByTrees: this.cumulativeYearlyEmissionsAbsorbedByTrees,
-           cumulativeYearlyEmissionsAbsorbedByCarbonSinks: this.cumulativeYearlyEmissionsAbsorbedByCarbonSinks,
-           cumulativeEmittedMinusAbsorbed: this.cumulativeEmittedMinusAbsorbed,
-           yearlyEmittedMinusAbsorbed: this.yearlyEmittedMinusAbsorbed,
+           cumulativeYearlyEmissions: this.cumulativeYearlyEmissions.map(c => kgToTons(c)),
+           cumulativeYearlyEmissionsAbsorbedByTrees: this.cumulativeYearlyEmissionsAbsorbedByTrees.map(c => kgToTons(c)),
+           cumulativeYearlyEmissionsAbsorbedByCarbonSinks: this.cumulativeYearlyEmissionsAbsorbedByCarbonSinks.map(c => kgToTons(c)),
+           cumulativeEmittedMinusAbsorbed: this.cumulativeEmittedMinusAbsorbed.map(c => kgToTons(c)),
+           yearlyEmittedMinusAbsorbed: this.yearlyEmittedMinusAbsorbed.map(c => kgToTons(c)),
            yearsToBecomeCarbonNegative: this.yearsToBecomeCarbonNegative
         }
     }

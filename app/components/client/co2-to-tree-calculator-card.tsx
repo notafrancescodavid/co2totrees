@@ -8,7 +8,7 @@ import {
 
 import CalculatorForm from "./calculator-form"
 import CalculatedChartWrapper from "./calculated-chart-wrapper";
-import { CalculatorSchemaType } from "../validators/calculator-schema";
+import { CalculatorSchemaType } from "@/lib/types";
 
 export default function Co2ToTreeCalculatorCard() {
     const dataRef = useRef<CalculatorSchemaType | null>(null);

@@ -8,11 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import ButtonLink from "./button-link";
 import LogoImage from "../client/logo-image";
-
-type CarouselItem = {
-    title: string;
-    todos: React.ReactNode[];
-};
+import { CarouselItemType } from '@/lib/types'
 
 export function ReduceEmissionsCarousel() {
     return <Carousel
@@ -48,7 +44,7 @@ export function ReduceEmissionsCarousel() {
     </Carousel>;
 }
 
-const items: CarouselItem[] = [
+const items: CarouselItemType[] = [
     {
         title: 'Energy 🔆🔋🔌',
         todos: [ 

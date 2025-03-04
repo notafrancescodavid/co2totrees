@@ -19,7 +19,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 
-import { CalculatorSchema, calculatorSchemaDefaultValues, CalculatorSchemaType, formInputInfo } from "../validators/calculator-schema"
+import { CalculatorSchema } from "../validators/calculator-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -30,11 +30,17 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Input } from "@/components/ui/input"
+import { FORM_CALCULATOR } from "@/lib/constants"
+import { CalculatorSchemaDefaultValuesType, CalculatorSchemaType } from "@/lib/types"
 
-export default function CalculatorForm({ convertAndShowChart }: { convertAndShowChart: CallableFunction}) {
+type Props = { 
+    convertAndShowChart: CallableFunction 
+};
+
+export default function CalculatorForm({ convertAndShowChart }: Props) {
     const form = useForm<CalculatorSchemaType>({
         resolver: zodResolver(CalculatorSchema),
-        defaultValues: calculatorSchemaDefaultValues as typeof calculatorSchemaDefaultValues & { age: number },
+        defaultValues: FORM_CALCULATOR.DEFAULT_VALUES as CalculatorSchemaDefaultValuesType & { age: number },
     })
      
     const onSubmit = (data: CalculatorSchemaType) => {
@@ -63,7 +69,7 @@ export default function CalculatorForm({ convertAndShowChart }: { convertAndShow
                 <CardContent>
                     <div className="grid w-full items-center gap-4">
                     <div className="flex flex-col space-y-1.5">
-                        {formInputInfo.map((f, idx) => 
+                        {FORM_CALCULATOR.INPUT_INFO_LIST.map((f, idx) =>
                             <FormField
                                 key={idx}
                                 control={form.control}

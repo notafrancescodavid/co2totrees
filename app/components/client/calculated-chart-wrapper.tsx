@@ -3,16 +3,19 @@
 import { Button } from "@/components/ui/button";
 import { CardHeader, CardDescription, CardContent, CardTitle } from "@/components/ui/card";
 import { MouseEventHandler, useMemo } from "react";
-import { CalculatorSchemaType } from "../validators/calculator-schema";
 import { Co2ToTreesCalculator } from "@/lib/Co2ToTreesCalculator";
 import { EmissionsChart } from "./charts/emissions-chart";
 import { EmissionsAbsorbtionChart } from "./charts/emissions-absorbtion-chart";
 import Link from "next/link";
 import ChartCard from "./chart-card";
+import { CalculatorSchemaType } from "@/lib/types";
 
-type CalculatedChartProps = { backToCalculator: MouseEventHandler<HTMLButtonElement>, data: CalculatorSchemaType };
+type Props = { 
+   backToCalculator: MouseEventHandler<HTMLButtonElement>, 
+   data: CalculatorSchemaType 
+};
 
-export default function CalculatedChartWrapper({ backToCalculator, data } : CalculatedChartProps) {
+export default function CalculatedChartWrapper({ backToCalculator, data } : Props) {
    const { age, trees, yearlyEmissionsInTons } = data;
 
    const stats = useMemo(() => {

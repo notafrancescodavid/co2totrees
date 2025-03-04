@@ -1,0 +1,65 @@
+import { CalculatorSchema } from "@/app/components/validators/calculator-schema";
+import { z } from "zod";
+
+// ________START CALCULATOR SCHEMA TYPES________
+export type FormInputInfoType = { 
+    label: string;
+    name: keyof CalculatorSchemaType;
+    type: string;
+    placeholder?: string;
+    min?: number;
+    max?: number;
+}
+
+export type CalculatorSchemaDefaultValuesType = Readonly<{
+    age: string;
+    trees: number;
+    yearlyEmissionsInTons: number;
+}>;
+
+export type CalculatorSchemaConstantsType = {
+    INPUT_INFO_LIST: Readonly<Array<FormInputInfoType>>;
+    DEFAULT_VALUES: CalculatorSchemaDefaultValuesType;
+}
+
+export type CalculatorSchemaType = z.infer<typeof CalculatorSchema>;
+// ________END CALCULATOR SCHEMA TYPES________
+
+// ________START COMPONENT TYPES________
+export type CarouselItemType = {
+    title: string;
+    todos: React.ReactNode[];
+};
+//________END COMPONENT TYPES________
+
+//________START CALCULATOR TYPES________
+export type Co2ToTreesCalculatorInput = {
+    personAge: number;
+    yearlyEmissionsInTons?: number;
+    treesPlantedEachYear: Readonly<number>;
+}
+
+export type StatisticsResult = {
+    cumulativeYearlyEmissions: number[];
+    cumulativeYearlyEmissionsAbsorbedByTrees: number[];
+    cumulativeYearlyEmissionsAbsorbedByCarbonSinks: number[];
+    cumulativeEmittedMinusAbsorbed: number[];
+    yearlyEmittedMinusAbsorbed: number[];
+    yearsToBecomeCarbonNegative: number | undefined;
+};
+
+export type Co2ToTreesCalculatorFields = Required<Readonly<Co2ToTreesCalculatorInput>> & {
+    humansOnEarth: number;
+    numberOfYearsOfAnalysis: Readonly<number>;
+    emissionReductionRate: Readonly<number>;
+    natureCo2SinkReductionRate: Readonly<number>;
+    yearlyKgNatureCo2SinkWorldwide: Readonly<number>;
+    peakWorlwidePopulationPredicted: Readonly<number>;
+    yearlyTreeDeathRate: Readonly<number>;
+    treeSizeMultiplier: Readonly<number>;
+}
+
+export type Tree = {
+    age: number;
+}
+//________END CALCULATOR TYPES________

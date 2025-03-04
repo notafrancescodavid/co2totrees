@@ -18,3 +18,6 @@ export function removeRandomObjects<T>(arr: T[], numberOfObjectsToBeRemoved: num
   // Filter out the elements at the selected indexes
   return arr.filter((_, i) => !indexesToRemove.has(i));
 }
+
+export const kgToTons = (kg: number) => kg / 1000;
+export const tonsToKg = (tons: number) => tons * 1000;
