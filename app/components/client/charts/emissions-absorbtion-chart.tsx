@@ -9,11 +9,11 @@ import { StatisticsResult } from "@/lib/types";
 // Define chart config with colors
 const chartConfig = {
   cumulativeYearlyEmissionsAbsorbedByTrees: {
-    label: "Cumulative Co2 Emissions Absorbed By The Trees You Planteed (in Kg)",
+    label: "Cumulative Co2 Emissions Absorbed By The Trees You Planteed (in Tons)",
     color: "green",
   },
   cumulativeAbsorbedByCarbonSinks: {
-    label: "Cumulative Co2 Emissions Absorbed By Carbon Sinks (in Kg)",
+    label: "Cumulative Co2 Emissions Absorbed By Carbon Sinks (in Tons)",
     color: "blue",
   }
 } satisfies ChartConfig;

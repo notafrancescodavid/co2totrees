@@ -14,7 +14,7 @@ export default function CalculatorDetails({ className = "" }) {
 
         <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-                <AccordionTrigger>Nature Sinks and Human population growth</AccordionTrigger>
+                <AccordionTrigger>Nature Sinks and human population growth</AccordionTrigger>
                 <AccordionContent>
                     <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
                         <li>
