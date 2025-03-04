@@ -1,11 +1,10 @@
 'use client';
 
-import { StatisticsResult } from "@/lib/Co2ToTreesCalculator";
-
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import { ChartConfig, ChartContainer } from "@/components/ui/chart";
 import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { ChartLegend, ChartLegendContent } from "@/components/ui/chart";
+import { StatisticsResult } from "@/lib/types";
 
 // Define chart config with colors
 const chartConfig = {
