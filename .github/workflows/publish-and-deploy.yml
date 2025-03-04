@@ -46,7 +46,7 @@ jobs:
             docker ps -aq --filter "ancestor=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}" | xargs -r docker rm && \
             docker image rm -f ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} || true && \
             docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} && \
-            docker run -d --name co2totrees -p ${{ env.EXPOSED_PORT }}:${{ env.INTERNAL_APP_PORT }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} && \
+            docker run -d --name co2totrees -p 127.0.0.1:${{ env.EXPOSED_PORT }}:${{ env.INTERNAL_APP_PORT }} ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} && \
             exit"
 
       - name: Cleanup SSH Keys
