@@ -8,7 +8,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.actor }}/co2totrees:latest
   INTERNAL_APP_PORT: 3000
-  EXPOSED_PORT: 80
+  EXPOSED_PORT: 8080
 
 jobs:
   publish:
