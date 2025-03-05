@@ -1,0 +1,100 @@
+{
+    "Home": {
+      "title": "How much time do you need to absorb all your Co2 emissions?",
+      "subTitle": "Imagine every year you plant some trees. The trees you plant each year absorb more and more Co2 as they grow. Use the calculator to see, depending on how many trees you imagine to plant each year, how much time you would need to become Carbon Negative."
+    },
+    "ReduceEmissions": {
+        "title": "I wish there was a way to reduce emissions and help me, nature and other people for free.",
+        "subTitle": "Good news! there are many ways to reduce your emissions, it turns out not only you can do them for free, but many save you money. Here is a list of some of the most impactful things you can do."
+    },
+    "CalculatorForm": {
+        "cardTitle": "When will I be Carbon Negative? 🤔",
+        "cardDescription": "Discover how much time you need to offset your lifetime Co2 Emissions and be Carbon Negative depending on how many trees you plant.",
+        "cardTooltipPart1": "You become Carbon Negative when you absorbed",
+        "cardTooltipPart2": "more than your lifetime Co2 emissions.",
+        "inputLabelAge": "Your Age",
+        "inputLabelTrees": "Number of Trees",
+        "inputLabelYearlyEmissionsInTons": "Your Yearly Co2 Emissions in tons",
+        "inputPlaceholderEmissionsInTons": "Co2 Emissions in tons",
+        "checkNow": "Check now"
+    },
+    "EmissionsAbsorbtionChart": {
+        "label1": "Cumulative Co2 Emissions Absorbed By The Trees You Planteed (in Tons)",
+        "label2": "Cumulative Co2 Emissions Absorbed By Carbon Sinks (in Tons)"
+    },
+    "EmissionsChart": {
+        "label1": "Cumulative Co2 Emissions (in Tons)",
+        "label2": "Cumulative Co2 Emissions Minus Cumulative Absorbed (in Tons)"
+    },
+    "CalculatedChartWrapper": {
+        "cardTitle": "When will I be Carbon Negative?",
+        "cardDescriptionOption1": "You will become Carbon Negative in {yearUserWillBeCarbonNegative}. You will need {yearsToBecomeCarbonNegative} years to absorb all your Co2 emissions by planting every year {numberOfTrees} trees.",
+        "cardDescriptionOption2": "You would not be able to absorb all your Co2 emissions in your lifetime by planting every year {numberOfTrees} trees.",
+        "reduceEmissionsCTA": "I Want to Reduce My Emissions",
+        "cumulativeEmissionsChartTitle": "Cumulative Emissions & Cumulative Emissions minus Cumulative Absorbed Emissions",
+        "absorbedEmissionsChartTitle": "Absorbed Emissions by nature sinks & Absorbed Emissions by the trees you imagine to plant every year"
+    },
+    "LogoImage": {
+        "alt": "The Carbon Negative logo"
+    },
+    "CalculatorDetails": {
+        "header": "The calculation above is computed by making some assumptions.",
+        "item1TriggerTitle": "Nature Sinks and human population growth",
+        "item1Content1": "Humans on earth are predicted to go from 8.1 billion (today) to 10.5 billion, and only after that the growth will stop and population stabilise. An average growth population rate is considered based on this assumption.",
+        "item1Content2": "Natural absorbtion of Co2 is assumed to decrease by 1% every year due to climate change and human destruction of nature. This is a conservative assumption unfortunately.",
+        "item1Content3": "Starting from the two assumptions made above the amount of Co2 captured by nature per person per year is computed by dividing the total co2 captured by earth and the human population.",
+        "item2TriggerTitle": "Factors affecting Co2 absorbed by trees",
+        "item2Content1": "Age: Trees absorb Co2 annually based on a base 2 log function computed based on their age. This assumes that alive trees at first absorb less carbon when small, and slowly absorb more until a point of maturity where they emit as much as they absorb.",
+        "item2Content2": "Survival Rate: each year 80% of trees will survive, hence they 20% that do not are removed from the calculation. (This assumption is optimistic, generally global survival rate of planted trees is around 70%)",
+        "item2Content3": "Size: small trees absorb less, medium trees more, big trees a lot more.",
+        "item3TriggerTitle": "Co2 Emissions reduction over time",
+        "item3Content1": "In the calculator the amount of Co2 you produce decreases each year until a maximum yearly reduction of 8%. This assumes emissions reduction will continue in most heavily emitting sectors globally like energy production, aviation and agriculture. (This assumption is optimistic, as emissions are unfortunately still rising globally).",
+        "item3Content2": "The calculation considers a minimum amount of yearly personal emissions of 20% compared to the one you insert in the input. This choice comes from the consideration that there will always be antropogenic sources of emissions that we cannot avoid.",
+        "item3Content3": "Different trees in different places absorb different amounts of Co2. This calculation considers an average absorbtion based on tree size, assuming most planted trees are small when fully grown (e.g. olive trees) and some others are medium or big (e.g. quercus or sequoia)."
+    },
+    "ReduceEmissionsCarousel": {
+        "item1title": "Energy 🔆🔋🔌",
+        "item1todo1part1": "Use renewable energy and push politicians to invest into low-emission energy (solar, wind, hydro, geothermal, nuclear)",
+        "item1todo2part1": "Reduce the energy you use:",
+        "item1todo2part2": "Turn off unused appliances (e.g. tv, consoles, computers)",
+        "item1todo2part3": "Do not heat too much your home",
+        "item1todo2part4": "Make shorter hot showers",
+        "item1todo2part5": "Reduce the use of air conditioning",
+        "item1todo2part6": "Use efficient appliances",
+        "item1todo2part7": "Make less and fuller washing machines",
+        "item2title": "Mobility 🌳🚴‍♂️🌳",
+        "item2todo1part1": "Use trains, bikes, walk, electric cars and ferries.",
+        "item2todo2part1": "Do not Take too many planes (in particular for short distances), use less your car and buy aerodynamic and light ones (Yes, Sorry, a SUV is not light and generally not aerodynamic!)",
+        "item3title": "Food 🍄‍🟫🥕🥔",
+        "item3todo1part1": "Eat vegetables, seeds, legumes, eggs, mussells (and all bivalves).",
+        "item3todo2part1": "Consume Red Meat at most twice per week. If you really need meat prefer white meat. Avoid also cow cheese and overconsumption of cheese.",
+        "item3todo3part1": "Avoid overconsumption of fish. Once or twice per week should be enough",
+        "item4title": "Consumerism 👎",
+        "item4todo1part1": "Buy few things, in particular buy few but well made products",
+        "item4todo2part1": "Try to fix broken objects, or at least treat them with care to make them last longer",
+        "item5title": "Politics 🔥",
+        "item5todo1part1": "Vote for politicians that care about the planet and people.",
+        "item5todo2part1": "Be an active part of the political speech and regulations. For example propose laws with the EU citizens initiative.",
+        "item5todo2part2": "Check the EU citizens initiative",
+        "item6title": "Services ⚡🔎💸",
+        "item6todo1part1": "Use Smart Energy Solutions like 1Komma5.",
+        "item6todo1part2": "Go to 1Komma5",
+        "item6todo2part1": "Use Ecosia search engine. You search and they plant trees for free!",
+        "item6todo2part2": "Go to Ecosia",
+        "item6todo3part1": "Switch to sustainable banking alternatives, a good example is the bank Tomorrow, they use part of their revenue for Clean Projects and investments, have a look!",
+        "item6todo3part2": "Go To Tomorrow",
+        "item7title": "Join us and donate to Non-profits 🌳",
+        "item7todo1part1": "Consider donating to non-profits and Join us at Carbon Negative, be an activist, help nature and fight climate change. You can contact us on Facebook or Instagram and ask: how can I help?"
+    },
+    "calculatorSchema": {
+        "ageRequiredError":  "Age is required.",
+        "ageInvalidTypeError": "Age is required and must be a number.",
+        "ageMinError": "Your age must be at least {min} year old.",
+        "ageMaxError": "Your age must be at less than {max} years old.",
+        "treesMinError": "The number of trees must be higher than {min}",
+        "yearlyEmissionsMinError": "The number of tons of Co2 emissions must be greater than {min}"
+    },
+    "common": {
+        "backToCalculator": "Back to the calculator"
+    }
+}

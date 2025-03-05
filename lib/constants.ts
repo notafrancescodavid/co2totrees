@@ -1,29 +1,29 @@
-import { CalculatorSchemaConstantsType } from "./types";
+import { FormInputInfoType } from "./types";
 
 export const THEME_TYPE = {
     LIGHT: 'light',
     DARK: 'dark'
 } as const;
 
-export const FORM_CALCULATOR: CalculatorSchemaConstantsType = {
-    INPUT_INFO_LIST: [
+export const FORM_CALCULATOR = {
+    getInputInfoList: <T extends CallableFunction>(t: T): FormInputInfoType[] => [
         {
-            label: "Your Age",
+            label: t("inputLabelAge"),
             name: "age",
             type: "number",
             min: 1,
             max: 80,
         },
         {
-            label: "Number of Trees",
+            label: t("inputLabelTrees"),
             name: "trees",
             type: "number",
             min: 1,
         },
         {
-            label: "Your Yearly Co2 Emissions in tons",
+            label: t("inputLabelYearlyEmissionsInTons"),
             name: "yearlyEmissionsInTons",
-            placeholder: "Co2 Emissions in tons",
+            placeholder: t("inputPlaceholderEmissionsInTons"),
             type: "number",
             min: 0,
         },
@@ -34,6 +34,19 @@ export const FORM_CALCULATOR: CalculatorSchemaConstantsType = {
         yearlyEmissionsInTons: 9
     }
 };
+
+export const CALCULATOR_SCHEMA = {
+    AGE: {
+        MIN: 1,
+        MAX: 80
+    } as const,
+    TREES: {
+        MIN: 1
+    } as const,
+    YEARLY_EMISSIONS_IN_TONS: {
+        MIN: 0
+    } as const
+} as const;
 
 export const CALCULATOR = {
     DEFAULT_VALUES: {
@@ -58,4 +71,14 @@ export const CALCULATOR = {
     MAX_YEARLY_EMISSIONS_REDUCTION_RATE: 0.08,
     MIN_TREE_PLANTED_AGE: 1,
     MAX_TREE_PLANTED_AGE: 6
+} as const;
+
+export const EMISSIONS_ABSORBTION_CHART = {
+    color1: 'green',
+    color2: 'blue',
+} as const;
+
+export const EMISSIONS_CHART = {
+    color1: 'red',
+    color2: 'orange',
 } as const;

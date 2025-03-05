@@ -1,4 +1,4 @@
-import { CalculatorSchema } from "@/app/components/validators/calculator-schema";
+import { getCalculatorSchema } from "@/app/components/validators/calculator-schema";
 import { z } from "zod";
 
 // ________START CALCULATOR SCHEMA TYPES________
@@ -17,12 +17,11 @@ export type CalculatorSchemaDefaultValuesType = Readonly<{
     yearlyEmissionsInTons: number;
 }>;
 
-export type CalculatorSchemaConstantsType = {
-    INPUT_INFO_LIST: Readonly<Array<FormInputInfoType>>;
-    DEFAULT_VALUES: CalculatorSchemaDefaultValuesType;
-}
+const translationsFnMockToCreateType = (l: string) => l;
 
-export type CalculatorSchemaType = z.infer<typeof CalculatorSchema>;
+// eslint-disable-next-line
+const calculatorSchema = getCalculatorSchema<typeof translationsFnMockToCreateType>(translationsFnMockToCreateType);
+export type CalculatorSchemaType = z.infer<typeof calculatorSchema>;
 // ________END CALCULATOR SCHEMA TYPES________
 
 // ________START COMPONENT TYPES________

@@ -75,7 +75,6 @@ export class Co2ToTreesCalculator {
             const additionalLifeEmissions = yearlyEmissionsInKg * this.fields.personAge;
             return yearlyEmissionsInKg + additionalLifeEmissions;
         } else {
-            console.log([yearlyEmissionsInKg, this.cumulativeYearlyEmissions[year - 1]]);
             return yearlyEmissionsInKg + this.cumulativeYearlyEmissions[year - 1];
         }
     }

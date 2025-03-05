@@ -1,0 +1,100 @@
+{
+  "Home": {
+    "title": "Wie lange brauchst du, um all deine Co2-Emissionen zu absorbieren?",
+    "subTitle": "Stell dir vor, du pflanzt jedes Jahr einige Bäume. Die Bäume, die du jedes Jahr pflanzt, absorbieren mit der Zeit immer mehr Co2. Nutze den Rechner, um zu sehen, wie lange du brauchen würdest, um CO2-negativ zu werden, je nachdem, wie viele Bäume du jährlich pflanzen möchtest."
+  },
+  "ReduceEmissions": {
+    "title": "Ich wünschte, es gäbe eine Möglichkeit, Emissionen zu reduzieren und gleichzeitig mir, der Natur und anderen Menschen kostenlos zu helfen.",
+    "subTitle": "Gute Nachrichten! Es gibt viele Möglichkeiten, deine Emissionen zu reduzieren, und nicht nur das – viele davon kosten nichts und sparen sogar Geld. Hier ist eine Liste der wirkungsvollsten Maßnahmen."
+  },
+  "CalculatorForm": {
+    "cardTitle": "Wann werde ich CO2-negativ? 🤔",
+    "cardDescription": "Finde heraus, wie lange du brauchst, um deine gesamten CO2-Emissionen auszugleichen und CO2-negativ zu werden, abhängig von der Anzahl der Bäume, die du pflanzt.",
+    "cardTooltipPart1": "Du wirst CO2-negativ, wenn du",
+    "cardTooltipPart2": "mehr als deine gesamten CO2-Emissionen absorbiert hast.",
+    "inputLabelAge": "Dein Alter",
+    "inputLabelTrees": "Anzahl der Bäume",
+    "inputLabelYearlyEmissionsInTons": "Deine jährlichen CO2-Emissionen in Tonnen",
+    "inputPlaceholderEmissionsInTons": "CO2-Emissionen in Tonnen",
+    "checkNow": "Jetzt prüfen"
+  },
+  "EmissionsAbsorbtionChart": {
+    "label1": "Kumulative CO2-Emissionen, die von deinen gepflanzten Bäumen absorbiert wurden (in Tonnen)",
+    "label2": "Kumulative CO2-Emissionen, die von natürlichen Kohlenstoffsenken absorbiert wurden (in Tonnen)"
+  },
+  "EmissionsChart": {
+    "label1": "Kumulative CO2-Emissionen (in Tonnen)",
+    "label2": "Kumulative CO2-Emissionen abzüglich absorbierter Mengen (in Tonnen)"
+  },
+  "CalculatedChartWrapper": {
+    "cardTitle": "Wann werde ich CO2-negativ?",
+    "cardDescriptionOption1": "Du wirst im Jahr {yearUserWillBeCarbonNegative} CO2-negativ. Du benötigst {yearsToBecomeCarbonNegative} Jahre, um alle deine CO2-Emissionen durch das jährliche Pflanzen von {numberOfTrees} Bäumen zu absorbieren.",
+    "cardDescriptionOption2": "Du würdest es in deinem Leben nicht schaffen, alle deine CO2-Emissionen durch das jährliche Pflanzen von {numberOfTrees} Bäumen zu absorbieren.",
+    "reduceEmissionsCTA": "Ich möchte meine Emissionen reduzieren",
+    "cumulativeEmissionsChartTitle": "Kumulative Emissionen & kumulative Emissionen abzüglich absorbierter Mengen",
+    "absorbedEmissionsChartTitle": "Von natürlichen Senken absorbierte Emissionen & von den Bäumen absorbierte Emissionen, die du jedes Jahr pflanzt"
+  },
+  "LogoImage": {
+    "alt": "Das Carbon Negative Logo"
+  },
+  "CalculatorDetails": {
+    "header": "Die obige Berechnung basiert auf einigen Annahmen.",
+    "item1TriggerTitle": "Natürliche Kohlenstoffsenken und Bevölkerungswachstum",
+    "item1Content1": "Die Weltbevölkerung wird voraussichtlich von heute 8,1 Milliarden auf 10,5 Milliarden anwachsen, bevor das Wachstum stoppt und sich stabilisiert. Eine durchschnittliche Wachstumsrate der Bevölkerung wird basierend auf dieser Annahme berücksichtigt.",
+    "item1Content2": "Es wird angenommen, dass die natürliche CO2-Absorption aufgrund des Klimawandels und der Zerstörung der Natur durch den Menschen jährlich um 1 % abnimmt. Leider ist dies eine konservative Annahme.",
+    "item1Content3": "Basierend auf den obigen Annahmen wird die pro Kopf von der Natur absorbierte CO2-Menge berechnet, indem die gesamte von der Erde aufgenommene CO2-Menge durch die Bevölkerungszahl geteilt wird.",
+    "item2TriggerTitle": "Faktoren, die die CO2-Absorption durch Bäume beeinflussen",
+    "item2Content1": "Alter: Bäume absorbieren CO2 gemäß einer logarithmischen Funktion, die auf ihrem Alter basiert. Junge Bäume absorbieren zunächst weniger, steigern ihre Aufnahme mit dem Wachstum, bis sie ein Reifestadium erreichen, in dem sie so viel ausstoßen, wie sie absorbieren.",
+    "item2Content2": "Überlebensrate: Jedes Jahr überleben 80 % der gepflanzten Bäume, während 20 % nicht überleben und aus der Berechnung entfernt werden. (Diese Annahme ist optimistisch, da die globale Überlebensrate bei etwa 70 % liegt.)",
+    "item2Content3": "Größe: Kleine Bäume absorbieren weniger, mittelgroße mehr und große Bäume noch mehr.",
+    "item3TriggerTitle": "CO2-Emissionsreduktion über die Zeit",
+    "item3Content1": "Im Rechner nimmt deine jährliche CO2-Produktion jedes Jahr ab, bis zu einer maximalen jährlichen Reduktion von 8 %. Dies basiert auf der Annahme, dass die Emissionsreduktion in stark emittierenden Sektoren wie Energieerzeugung, Luftfahrt und Landwirtschaft weitergeht. (Dies ist eine optimistische Annahme, da die Emissionen global noch steigen.)",
+    "item3Content2": "Die Berechnung berücksichtigt eine Mindestmenge an jährlichen persönlichen Emissionen von 20 % im Vergleich zu dem, was du im Eingabefeld angibst. Dies basiert auf der Überlegung, dass es immer anthropogene Emissionsquellen geben wird, die nicht vermeidbar sind.",
+    "item3Content3": "Verschiedene Bäume in verschiedenen Regionen absorbieren unterschiedliche Mengen an CO2. Diese Berechnung geht von einer durchschnittlichen Absorptionsrate aus, basierend auf der Baumgröße, wobei angenommen wird, dass die meisten gepflanzten Bäume klein sind (z. B. Olivenbäume) und einige mittelgroß oder groß (z. B. Eichen oder Mammutbäume)."
+  },
+  "ReduceEmissionsCarousel": {
+    "item1title": "Energie 🔆🔋🔌",
+    "item1todo1part1": "Nutze erneuerbare Energien und fordere Politiker auf, in emissionsarme Energie zu investieren (Solar, Wind, Wasser, Geothermie, Kernenergie)",
+    "item1todo2part1": "Reduziere deinen Energieverbrauch:",
+    "item1todo2part2": "Schalte ungenutzte Geräte aus (z. B. Fernseher, Konsolen, Computer)",
+    "item1todo2part3": "Heize dein Zuhause nicht übermäßig",
+    "item1todo2part4": "Verkürze heiße Duschen",
+    "item1todo2part5": "Reduziere die Nutzung von Klimaanlagen",
+    "item1todo2part6": "Nutze energieeffiziente Geräte",
+    "item1todo2part7": "Wasche weniger, aber mit voller Ladung",
+    "item2title": "Mobilität 🌳🚴‍♂️🌳",
+    "item2todo1part1": "Nutze Züge, Fahrräder, gehe zu Fuß, verwende Elektroautos und Fähren.",
+    "item2todo2part1": "Vermeide zu viele Flüge (besonders auf kurzen Strecken), benutze dein Auto weniger und kaufe aerodynamische und leichte Fahrzeuge (Ja, leider, ein SUV ist weder leicht noch aerodynamisch!)",
+    "item3title": "Ernährung 🍄‍🟫🥕🥔",
+    "item3todo1part1": "Iss Gemüse, Samen, Hülsenfrüchte, Eier, Muscheln (und alle anderen Schalentiere).",
+    "item3todo2part1": "Konsumiere rotes Fleisch höchstens zweimal pro Woche. Falls du Fleisch wirklich brauchst, bevorzuge weißes Fleisch. Vermeide auch Kuhkäse und übermäßigen Käsekonsum.",
+    "item3todo3part1": "Vermeide übermäßigen Fischkonsum. Ein- bis zweimal pro Woche reicht aus.",
+    "item4title": "Konsum 👎",
+    "item4todo1part1": "Kaufe weniger Dinge, insbesondere wenige, aber qualitativ hochwertige Produkte.",
+    "item4todo2part1": "Versuche, kaputte Gegenstände zu reparieren oder behandle sie zumindest sorgfältig, damit sie länger halten.",
+    "item5title": "Politik 🔥",
+    "item5todo1part1": "Wähle Politiker, die sich für den Planeten und die Menschen einsetzen.",
+    "item5todo2part1": "Sei aktiv in politischen Diskussionen und Regulierungen. Schlage beispielsweise Gesetze mit der EU-Bürgerinitiative vor.",
+    "item5todo2part2": "Prüfe die EU-Bürgerinitiative",
+    "item6title": "Dienstleistungen ⚡🔎💸",
+    "item6todo1part1": "Nutze smarte Energielösungen wie 1Komma5.",
+    "item6todo1part2": "Besuche 1Komma5",
+    "item6todo2part1": "Nutze die Suchmaschine Ecosia. Du suchst und sie pflanzen kostenlos Bäume!",
+    "item6todo2part2": "Besuche Ecosia",
+    "item6todo3part1": "Wechsle zu nachhaltigen Bankalternativen. Ein gutes Beispiel ist die Bank Tomorrow, die einen Teil ihrer Einnahmen für saubere Projekte und Investitionen nutzt. Schau es dir an!",
+    "item6todo3part2": "Besuche Tomorrow",
+    "item7title": "Schließ dich uns an und spende an gemeinnützige Organisationen 🌳",
+    "item7todo1part1": "Erwäge eine Spende an gemeinnützige Organisationen und tritt Carbon Negative bei. Werde Aktivist, hilf der Natur und kämpfe gegen den Klimawandel. Du kannst uns auf Facebook oder Instagram kontaktieren und fragen: Wie kann ich helfen?"
+  },
+  "calculatorSchema": {
+    "ageRequiredError": "Das Alter ist erforderlich.",
+    "ageInvalidTypeError": "Das Alter ist erforderlich und muss eine Zahl sein.",
+    "ageMinError": "Dein Alter muss mindestens {min} Jahre betragen.",
+    "ageMaxError": "Dein Alter muss weniger als {max} Jahre betragen.",
+    "treesMinError": "Die Anzahl der Bäume muss größer als {min} sein.",
+    "yearlyEmissionsMinError": "Die Anzahl der Tonnen CO2-Emissionen muss größer als {min} sein."
+  },
+  "common": {
+    "backToCalculator": "Zurück zum Rechner"
+  }
+}

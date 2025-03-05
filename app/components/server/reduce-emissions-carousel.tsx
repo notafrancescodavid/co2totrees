@@ -9,8 +9,12 @@ import {
 import ButtonLink from "./button-link";
 import LogoImage from "../client/logo-image";
 import { CarouselItemType } from '@/lib/types'
+import { useTranslations } from "next-intl";
 
 export function ReduceEmissionsCarousel() {
+    const t = useTranslations('ReduceEmissionsCarousel');
+    const items = getItems(t);
+
     return <Carousel
       opts={{
         align: "start",
@@ -44,97 +48,89 @@ export function ReduceEmissionsCarousel() {
     </Carousel>;
 }
 
-const items: CarouselItemType[] = [
+const getItems = <T extends CallableFunction>(t: T): CarouselItemType[] => [
     {
-        title: 'Energy 🔆🔋🔌',
+        title: t('item1title'),
         todos: [ 
-            "Use renewable energy and push politicians to invest into low-emission energy (solar, wind, hydro, geothermal, nuclear)",
+            t('item1todo1part1'),
             <>
-                Reduce the energy you use: 
+                {t('item1todo2part1')}
                 <ul className="list-disc list-inside">
-                    <li>Turn off unused appliances (e.g. tv, consoles, computers)</li>
-                    <li>Do not heat too much your home</li>
-                    <li>Make shorter hot showers</li>
-                    <li>Reduce the use of air conditioning</li>
-                    <li>Use efficient appliances</li>
-                    <li>Make less and fuller washing machines</li>
+                    <li>{t('item1todo2part2')}</li>
+                    <li>{t('item1todo2part3')}</li>
+                    <li>{t('item1todo2part4')}</li>
+                    <li>{t('item1todo2part5')}</li>
+                    <li>{t('item1todo2part6')}</li>
+                    <li>{t('item1todo2part7')}</li>
                 </ul>
             </>
         ]
     },
     {
-        title: 'Mobility 🌳🚴‍♂️🌳',
+        title: t('item2title'),
         todos: [ 
-            "Use trains, bikes, walk, electric cars and ferries.",
-            "Do not Take too many planes (in particular for short distances), use less your car and buy aerodynamic and light ones \
-            (Yes, Sorry, a SUV is not light and generally not aerodynamic!)"
+            t('item2todo1part1'),
+            t('item2todo2part1')
         ]
     },
     {
-        title: 'Food 🍄‍🟫🥕🥔',
+        title: t('item3title'),
         todos: [ 
-            "Eat vegetables, seeds, legumes, eggs, mussells (and all bivalves).",
-            "Consume Red Meat at most twice per week. If you really need meat prefer white meat. \
-            Avoid also cow cheese and overconsumption of cheese.",
-            "Avoid overconsumption of fish. Once or twice per week should be enough"
+            t('item3todo1part1'),
+            t('item3todo2part1'),
+            t('item3todo3part1')
         ]
     },
     {
-        title: 'Consumerism 👎',
+        title: t('item4title'),
         todos: [ 
-            "Buy few things, in particular buy few but well made products",
-            "Try to fix broken objects, or at least treat them with care to make them last longer"
+            t('item4todo1part1'),
+            t('item4todo2part1')
         ]
     },
     {
-        title: 'Politics 🔥',
+        title: t('item5title'),
         todos: [ 
-            "Vote for politicians that care about the planet and people.",
+            t('item5todo1part1'),
             <>
-                Be an active part of the political speech and regulations. 
-                For example propose laws with the EU citizens initiative.
+                {t('item5todo2part1')}
                 <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://citizens-initiative.europa.eu/_en">
-                    Check the EU citizens initiative
+                    {t('item5todo2part2')}
                 </ButtonLink>
             </>
         ]
     },
     {
-        title: 'Services ⚡🔎💸',
+        title: t('item6title'),
         todos: [ 
             <>
-                <div>
-                    Use Smart Energy Solutions like 1Komma5.
-                </div>
-                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://1komma5.com/en/">Go to 1Komma5</ButtonLink>
+                <div>{t('item6todo1part1')}</div>
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://1komma5.com/en/">
+                    {t('item6todo1part2')}
+                </ButtonLink>
             </>,
             <>
-                <div>
-                    Use Ecosia search engine. You search and they plant trees for free!
-                </div>
-                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://www.ecosia.org/">Go to Ecosia</ButtonLink>
+                <div>{t('item6todo2part1')}</div>
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://www.ecosia.org/">
+                    {t('item6todo2part2')}
+                </ButtonLink>
             </>,
             <>
-                <div>
-                    Switch to sustainable banking alternatives, a good example is the bank Tomorrow, 
-                    they use part of their revenue for Clean Projects and investments, have a look!
-                </div>
-                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://www.tomorrow.one/en-EU/">Go To Tomorrow</ButtonLink>
+                <div>{t('item6todo3part1')}</div>
+                <ButtonLink buttonClass="min-w-full" className="inline-block min-w-full" href="https://www.tomorrow.one/en-EU/">
+                    {t('item6todo3part2')}
+                </ButtonLink>
             </>
         ]
     },
     {
-        title: 'Join us and donate to Non-profits 🌳',
+        title: t('item7title'),
         todos: [
             <>
-                <div className="flex min-w-fit justify-center">
+                <div className="flex min-w-fit justify-center my-3">
                     <LogoImage className="h-11 w-auto" />
                 </div>
-            </>,
-            <>
-                <div>
-                    Consider donating to non-profits and Join us at Carbon Negative, be an activist, help nature and fight climate change. You can contact us on Facebook or Instagram and ask: how can I help?
-                </div>
+                <div>{t('item7todo1part1')}</div>
                 <ButtonLink buttonClass="min-w-full" className="inline-block w-1/2 px-1" href="https://www.facebook.com/carbonegativ">Facebook</ButtonLink>
                 <ButtonLink buttonClass="min-w-full" className="inline-block w-1/2 px-1" href="https://www.instagram.com/carbon_negative_/">Instagram</ButtonLink>
             </>,

@@ -19,7 +19,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 
-import { CalculatorSchema } from "../validators/calculator-schema"
+import { getCalculatorSchema } from "../validators/calculator-schema"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 
@@ -32,35 +32,42 @@ import {
 import { Input } from "@/components/ui/input"
 import { FORM_CALCULATOR } from "@/lib/constants"
 import { CalculatorSchemaDefaultValuesType, CalculatorSchemaType } from "@/lib/types"
+import { useTranslations } from "next-intl"
 
 type Props = { 
-    convertAndShowChart: CallableFunction 
+    convertAndShowChart: CallableFunction;
+    data: CalculatorSchemaType | null;
 };
 
-export default function CalculatorForm({ convertAndShowChart }: Props) {
+export default function CalculatorForm({ convertAndShowChart, data }: Props) {
+    const t = useTranslations('CalculatorForm');
+    const tCalculatorSchema = useTranslations('calculatorSchema');
+
     const form = useForm<CalculatorSchemaType>({
-        resolver: zodResolver(CalculatorSchema),
-        defaultValues: FORM_CALCULATOR.DEFAULT_VALUES as CalculatorSchemaDefaultValuesType & { age: number },
+        resolver: zodResolver(getCalculatorSchema<typeof tCalculatorSchema>(tCalculatorSchema)),
+        defaultValues: data || FORM_CALCULATOR.DEFAULT_VALUES as CalculatorSchemaDefaultValuesType & { age: number },
     })
-     
+ 
     const onSubmit = (data: CalculatorSchemaType) => {
         convertAndShowChart(data);
     }
 
+    const inputInfoList = FORM_CALCULATOR.getInputInfoList(t);
+
     return <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
                 <CardHeader>
-                    <CardTitle className="text-3xl">When will I be Carbon Negative? 🤔</CardTitle>
+                    <CardTitle className="text-3xl">{t('cardTitle')}</CardTitle>
                     <CardDescription className="text-md">
-                        Discover how much time you need to offset your lifetime Co2 Emissions and be Carbon Negative depending on how many trees you plant.
+                        {t('cardDescription')}
                         <TooltipProvider>
                             <Tooltip>
                                 <TooltipTrigger asChild>
-                                    <span> ⓘ</span>
+                                    <span>ⓘ</span>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                    <div>You become Carbon Negative when you absorbed</div>
-                                    <div>more than your lifetime Co2 emissions.</div>
+                                    <div>{t('cardTooltipPart1')}</div>
+                                    <div>{t('cardTooltipPart2')}</div>
                                 </TooltipContent>
                             </Tooltip>
                         </TooltipProvider>
@@ -69,7 +76,7 @@ export default function CalculatorForm({ convertAndShowChart }: Props) {
                 <CardContent>
                     <div className="grid w-full items-center gap-4">
                     <div className="flex flex-col space-y-1.5">
-                        {FORM_CALCULATOR.INPUT_INFO_LIST.map((f, idx) =>
+                        {inputInfoList.map((f, idx) =>
                             <FormField
                                 key={idx}
                                 control={form.control}
@@ -94,7 +101,7 @@ export default function CalculatorForm({ convertAndShowChart }: Props) {
                 </div>
                 </CardContent>
                 <CardFooter className="flex float-right">
-                    <Button type="submit">Check now</Button>
+                    <Button type="submit">{t('checkNow')}</Button>
                 </CardFooter>
             </form>
         </Form>
