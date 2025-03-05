@@ -25,4 +25,9 @@ run the development server:
 npm run dev
 ```
 
-then open the app on the browser and type localhost:3000
+Then open the app on the browser and type localhost:3000
+
+The website is developed for a Non-profit planting trees called Carbon Negative.
+The code is open-source as the calculator or website structure can be reused in other projects.
+
+The app is running at https://www.becarbonnegative.org
