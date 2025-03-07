@@ -28,12 +28,10 @@ export default function Co2ToTreeCalculatorCard() {
         `my-10 w-4/5 sm:w-4/5 lg:w-3/5`:
         `my-10 w-4/5 sm:w-3/5 lg:w-2/5`;
     
-    return (
-        <Card className={cssClass}>
+    return <Card className={cssClass}>
             { showChart && dataRef.current?
                 <CalculatedChartWrapper backToCalculator={backToCalculator} data={dataRef.current}/>
                 : <CalculatorForm convertAndShowChart={convertAndShowChart} data={dataRef.current}/> 
             }
         </Card>
-    )
 }

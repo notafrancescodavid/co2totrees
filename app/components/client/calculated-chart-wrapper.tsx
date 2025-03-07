@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { CardHeader, CardDescription, CardContent, CardTitle } from "@/components/ui/card";
-import { MouseEventHandler, useMemo } from "react";
+import { memo, MouseEventHandler, useMemo } from "react";
 import { Co2ToTreesCalculator } from "@/lib/Co2ToTreesCalculator";
 import { EmissionsChart } from "./charts/emissions-chart";
 import { EmissionsAbsorbtionChart } from "./charts/emissions-absorbtion-chart";
@@ -16,7 +16,7 @@ type Props = {
    data: CalculatorSchemaType 
 };
 
-export default function CalculatedChartWrapper({ backToCalculator, data } : Props) {
+export default memo(function CalculatedChartWrapper({ backToCalculator, data } : Props) {
    const t = useTranslations('CalculatedChartWrapper');
    const tCommon = useTranslations('common');
    const { age, trees, yearlyEmissionsInTons } = data;
@@ -31,7 +31,7 @@ export default function CalculatedChartWrapper({ backToCalculator, data } : Prop
       return calculator.performEmissionAnalysis();
    }, [age, yearlyEmissionsInTons, trees]);
 
-   return (<>
+   return <>
       <CardHeader>
          <CardTitle className="block sm:inline-block text-xl md:text-2xl">
             {t('cardTitle')}
@@ -59,5 +59,5 @@ export default function CalculatedChartWrapper({ backToCalculator, data } : Prop
          <ChartCard title={t('cumulativeEmissionsChartTitle')} chart={<EmissionsChart stats={stats} />} />
          <ChartCard title={t('absorbedEmissionsChartTitle')} chart={<EmissionsAbsorbtionChart stats={stats} />} />
       </CardContent>
-   </>)
-}
+   </>
+});

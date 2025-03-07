@@ -27,8 +27,14 @@ export type CalculatorSchemaType = z.infer<typeof calculatorSchema>;
 // ________START COMPONENT TYPES________
 export type CarouselItemType = {
     title: string;
-    todos: React.ReactNode[];
+    todos: TodoItemType[];
 };
+
+export type TodoItemType =
+    | string
+    | { type: "list"; text: string; items: string[] }
+    | { type: "button"; text: string; label: string; href: string }
+    | { type: "logo"; text: string; links: { href: string; label: string }[] };
 //________END COMPONENT TYPES________
 
 //________START CALCULATOR TYPES________

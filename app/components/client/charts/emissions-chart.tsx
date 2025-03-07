@@ -33,7 +33,7 @@ export function EmissionsChart({ stats } : Props) {
       cumulativeEmittedMinusAbsorbed: Math.round(stats.cumulativeEmittedMinusAbsorbed[index])
   }));
 
-  return (<ChartContainer config={chartConfig} className="h-[300px] w-full">
+  return <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <BarChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis
@@ -47,5 +47,5 @@ export function EmissionsChart({ stats } : Props) {
           <Bar dataKey="cumulativeYearlyEmissions" fill={chartConfig.cumulativeYearlyEmissions.color} radius={4} />
           <Bar dataKey="cumulativeEmittedMinusAbsorbed" fill={chartConfig.cumulativeEmittedMinusAbsorbed.color} radius={4} />
       </BarChart>
-  </ChartContainer>);
+  </ChartContainer>
 }

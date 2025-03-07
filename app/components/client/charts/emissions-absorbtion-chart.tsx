@@ -33,7 +33,7 @@ export function EmissionsAbsorbtionChart({ stats } : Props) {
       cumulativeAbsorbedByCarbonSinks: Math.round(stats.cumulativeYearlyEmissionsAbsorbedByCarbonSinks[index])
   }));
 
-  return (<ChartContainer config={chartConfig} className="h-[300px] w-full">
+  return <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <BarChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis
@@ -47,5 +47,5 @@ export function EmissionsAbsorbtionChart({ stats } : Props) {
           <Bar dataKey="cumulativeYearlyEmissionsAbsorbedByTrees" fill={chartConfig.cumulativeYearlyEmissionsAbsorbedByTrees.color} radius={4} />
           <Bar dataKey="cumulativeAbsorbedByCarbonSinks" fill={chartConfig.cumulativeAbsorbedByCarbonSinks.color} radius={4} />
       </BarChart>
-  </ChartContainer>);
+  </ChartContainer>
 }

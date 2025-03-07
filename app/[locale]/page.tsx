@@ -10,8 +10,8 @@ export default function Home() {
   return <>
     <PageDescription title={t('title')} subTitle={t('subTitle')}/>
     <section className="flex flex-col items-center">
-          <Co2ToTreeCalculatorCard />
-          <CalculatorDetails className={"my-10 w-4/5 lg:w-3/5 lg:w-2/5"}/>
-      </section>
+      <Co2ToTreeCalculatorCard />
+      <CalculatorDetails className={"my-10 w-4/5 lg:w-3/5 lg:w-2/5"}/>
+    </section>
   </>;
 }

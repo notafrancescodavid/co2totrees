@@ -15,5 +15,5 @@ export default function PageDescription({ title, subTitle }: Props) {
           </p>
         </div>
       </div>
-    </div>;
+    </div>
 }

@@ -17,5 +17,5 @@ export default function ChartCard({ title, chart } : Props) {
             <CardContent>
                 {chart}
             </CardContent>
-        </Card>;
+        </Card>
 }

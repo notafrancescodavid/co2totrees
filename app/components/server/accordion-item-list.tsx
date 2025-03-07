@@ -15,5 +15,5 @@ type Props = {
                     {listItemText.map((text, idx) => <li key={idx}>{text}</li>)}
                 </ul>
             </AccordionContent>
-        </AccordionItem>;
+        </AccordionItem>
   }

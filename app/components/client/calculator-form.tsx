@@ -33,13 +33,14 @@ import { Input } from "@/components/ui/input"
 import { FORM_CALCULATOR } from "@/lib/constants"
 import { CalculatorSchemaDefaultValuesType, CalculatorSchemaType } from "@/lib/types"
 import { useTranslations } from "next-intl"
+import { memo } from "react"
 
 type Props = { 
     convertAndShowChart: CallableFunction;
     data: CalculatorSchemaType | null;
 };
 
-export default function CalculatorForm({ convertAndShowChart, data }: Props) {
+export default memo(function CalculatorForm({ convertAndShowChart, data }: Props) {
     const t = useTranslations('CalculatorForm');
     const tCalculatorSchema = useTranslations('calculatorSchema');
 
@@ -105,4 +106,4 @@ export default function CalculatorForm({ convertAndShowChart, data }: Props) {
                 </CardFooter>
             </form>
         </Form>
-}
+});
