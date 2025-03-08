@@ -4,10 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from '@/i18n/navigation';
 import PageDescription from "../../components/server/page-description";
 import { ReduceEmissionsCarousel } from "../../components/server/reduce-emissions-carousel";
+import { setRequestLocale } from 'next-intl/server';
+import { use } from 'react';
 
-export default function ReduceEmissions() {
-  const t = useTranslations('ReduceEmissions');
+export default function ReduceEmissions({ params }: {
+  params: Promise<{
+    locale: string;
+  }>;
+}) {
+  const { locale } = use(params);
+  // Enable static rendering
+  setRequestLocale(locale);
+  
   const tCommon = useTranslations('common');
+  const t = useTranslations('ReduceEmissions');
   
   return <>
     <PageDescription title={t('title')} subTitle={t('subTitle')} />
