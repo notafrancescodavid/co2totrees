@@ -96,5 +96,10 @@
   },
   "common": {
     "backToCalculator": "Torna al calcolatore"
+  },
+  "metadata": {
+    "title": "Co2ToTrees By Carbon Negative",
+    "description": "Controlla di quanti alberi e tempo c'è bisogno per compensare le tue emissioni di CO2.",
+    "keywords": "Piantare alberi, cambiamenti climatici, compensazione di CO2, Carbon Negative, calcolatore di assorbimento delle emissioni degli alberi"
   }
 }

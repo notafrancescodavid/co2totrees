@@ -8,9 +8,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
 
 export default function ReduceEmissions({ params }: {
-  params: Promise<{
-    locale: string;
-  }>;
+  params: Promise<Record<string, string>>;
 }) {
   const { locale } = use(params);
   // Enable static rendering

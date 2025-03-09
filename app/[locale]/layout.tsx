@@ -1,29 +1,34 @@
 import "../globals.css";
 
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import type { Metadata } from "next";
-
 import { ThemeProvider } from "../components/client/theme/theme-provider";
 import Navbar from "../components/server/navbar";
+import { ParamsType } from "@/lib/types";
  
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
 
-export const metadata: Metadata = {
-  title: "Co2ToTrees By Carbon Negative",
-  description: "An app to check how many trees and time a person needs to compensate their Co2 emissions.",
-};
+export async function generateMetadata({ params }: { params: ParamsType }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata'});
+ 
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords')
+  };
+}
  
 export default async function LocaleLayout({
   children,
   params
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: ParamsType;
 }) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;

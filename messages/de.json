@@ -96,5 +96,10 @@
   },
   "common": {
     "backToCalculator": "Zurück zum Rechner"
-  }
+  },
+  "metadata": {
+    "title": "Co2ToTrees von Carbon Negative",
+    "description": "Prüfen Sie, wie viele Bäume und wie viel Zeit erforderlich sind, um Ihre CO2-Emissionen auszugleichen.",
+    "keywords": "Bäume pflanzen, Klimawandel, CO2-Ausgleich, CO2-negativ, Kohlenstoffabsorptionsrechner für Bäume"
+    }
 }

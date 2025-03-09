@@ -96,5 +96,10 @@
     },
     "common": {
         "backToCalculator": "Back to the calculator"
+    },
+    "metadata": {
+        "title": "Co2ToTrees By Carbon Negative",
+        "description": "Check how many trees and time it takes to offset your CO2 emissions.",
+        "keywords": "Tree planting, climate change, Co2 compensation, carbon negative, tree emissions absorbtion calculator"
     }
 }

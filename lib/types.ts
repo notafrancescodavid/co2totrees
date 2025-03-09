@@ -1,6 +1,10 @@
 import { getCalculatorSchema } from "@/app/components/validators/calculator-schema";
 import { z } from "zod";
 
+// ________START COMMON TYPES________
+export type ParamsType = Promise<Record<string, string>>;
+// ________END COMMON TYPES________
+
 // ________START CALCULATOR SCHEMA TYPES________
 export type FormInputInfoType = { 
     label: string;
