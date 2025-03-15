@@ -10,7 +10,7 @@ export const getCalculatorSchema = <T extends CallableFunction>(t: T) => {
               invalid_type_error: t('ageInvalidTypeError'),
             })
             .min(CALCULATOR_SCHEMA.AGE.MIN, { message: t('ageMinError', { min: CALCULATOR_SCHEMA.AGE.MIN}) })
-            .max(CALCULATOR_SCHEMA.AGE.MAX, { message: t('ageMaxError', { max: CALCULATOR_SCHEMA.AGE.MAX}) })
+            .max(CALCULATOR_SCHEMA.AGE.MAX - 1, { message: t('ageMaxError', { max: CALCULATOR_SCHEMA.AGE.MAX}) })
         ),
         trees: z.coerce.number().min(CALCULATOR_SCHEMA.TREES.MIN, {
             message: t('treesMinError', { min: CALCULATOR_SCHEMA.TREES.MIN })

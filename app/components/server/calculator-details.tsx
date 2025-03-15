@@ -4,7 +4,11 @@ import {
 import { useTranslations } from "next-intl"
 import AccordionItemList from "./accordion-item-list";
 
-export default function CalculatorDetails({ className = "" }) {
+type Props = {
+    className?: string;
+}
+
+export default function CalculatorDetails({ className = "" }: Props) {
     const t = useTranslations('CalculatorDetails');
 
     return <div className={className}>

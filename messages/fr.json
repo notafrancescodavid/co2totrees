@@ -1,0 +1,105 @@
+{
+    "Home": {
+      "title": "Combien de temps vous faut-il pour absorber toutes vos émissions de CO2 ?",
+      "subTitle": "Imaginez que chaque année, vous plantez quelques arbres. Les arbres que vous plantez chaque année absorbent de plus en plus de CO2 à mesure qu'ils grandissent. Utilisez le calculateur pour voir, en fonction du nombre d'arbres que vous imaginez planter chaque année, combien de temps il vous faudrait pour devenir Carbone Négatif."
+    },
+    "ReduceEmissions": {
+        "title": "J'aimerais qu'il existe un moyen de réduire les émissions et d'aider moi-même, la nature et les autres gratuitement.",
+        "subTitle": "Bonne nouvelle ! Il existe de nombreuses façons de réduire vos émissions, et il se trouve que non seulement vous pouvez le faire gratuitement, mais beaucoup vous permettent aussi d'économiser de l'argent. Voici une liste de certaines des actions les plus impactantes que vous pouvez entreprendre."
+    },
+    "CalculatorForm": {
+        "cardTitle": "Quand serai-je Carbone Négatif? 🤔",
+        "cardDescription": "Découvrez combien de temps il vous faut pour compenser vos émissions de CO2 à vie et devenir Carbone Négatif en fonction du nombre d'arbres que vous plantez.",
+        "cardTooltipPart1": "Vous devenez Carbone Négatif lorsque vous avez absorbé",
+        "cardTooltipPart2": "plus que vos émissions de CO2 à vie.",
+        "inputLabelAge": "Votre Âge",
+        "inputLabelTrees": "Nombre d'Arbres",
+        "inputLabelYearlyEmissionsInTons": "Vos émissions annuelles de CO2 en tonnes",
+        "inputPlaceholderEmissionsInTons": "Émissions de CO2 en tonnes",
+        "checkNow": "Vérifier maintenant"
+    },
+    "EmissionsAbsorbtionChart": {
+        "label1": "Émissions cumulées de CO2 absorbées par les arbres que vous avez plantés (en tonnes)",
+        "label2": "Émissions cumulées de CO2 absorbées par les puits de carbone (en tonnes)"
+    },
+    "EmissionsChart": {
+        "label1": "Émissions cumulées de CO2 (en tonnes)",
+        "label2": "Émissions cumulées de CO2 moins les cumulées absorbées (en tonnes)"
+    },
+    "CalculatedChartWrapper": {
+        "cardTitle": "Quand serai-je Carbone Négatif ?",
+        "cardDescriptionOption1": "Vous deviendrez Carbone Négatif en {yearUserWillBeCarbonNegative}. Il vous faudra {yearsToBecomeCarbonNegative} ans pour absorber toutes vos émissions de CO2 en plantant chaque année {numberOfTrees} arbres.",
+        "cardDescriptionOption2": "Vous ne pourriez pas absorber toutes vos émissions de CO2 au cours de votre vie en plantant chaque année {numberOfTrees} arbres.",
+        "reduceEmissionsCTA": "Je veux réduire mes émissions",
+        "cumulativeEmissionsChartTitle": "Émissions cumulées et émissions cumulées moins émissions absorbées cumulées",
+        "absorbedEmissionsChartTitle": "Émissions absorbées par les puits naturels et émissions absorbées par les arbres que vous imaginez planter chaque année"
+    },
+    "LogoImage": {
+        "alt": "Le logo de Carbone Négatif"
+    },
+    "CalculatorDetails": {
+        "header": "Le calcul ci-dessus est effectué en faisant certaines hypothèses.",
+        "item1TriggerTitle": "Puits naturels et croissance de la population humaine",
+        "item1Content1": "On prévoit que la population humaine passera de 8,1 milliards (aujourd'hui) à 10,5 milliards, puis le croissance s'arrêtera et la population se stabilisera. Un taux de croissance moyen est pris en compte sur cette base.",
+        "item1Content2": "On suppose que l'absorption naturelle de CO2 diminue de 1 % chaque année en raison du changement climatique et de la destruction humaine de la nature. Malheureusement, c'est une hypothèse conservatrice.",
+        "item1Content3": "En partant des deux hypothèses ci-dessus, la quantité de CO2 capturée par la nature par personne et par an est calculée en divisant le total de CO2 capturé par la Terre par la population humaine.",
+        "item2TriggerTitle": "Facteurs influençant le CO2 absorbé par les arbres",
+        "item2Content1": "Âge : Les arbres absorbent du CO2 chaque année selon une fonction logarithmique de base 2 calculée en fonction de leur âge. Cela suppose que les arbres vivants absorbent moins de carbone lorsqu'ils sont jeunes, et en absorbent progressivement plus jusqu'à atteindre un stade de maturité où ils émettent autant qu'ils absorbent.",
+        "item2Content2": "Taux de survie : chaque année, 80 % des arbres survivent, donc les 20 % qui ne survivent pas sont exclus du calcul. (Cette hypothèse est optimiste, le taux global de survie des arbres plantés étant généralement de 70 %)",
+        "item2Content3": "Taille : les petits arbres absorbent moins, les moyens plus, et les grands beaucoup plus.",
+        "item3TriggerTitle": "Réduction des émissions de CO2 au fil du temps",
+        "item3Content1": "Dans le calculateur, la quantité de CO2 que vous produisez diminue chaque année jusqu'à une réduction maximale annuelle de 8 %. Cela suppose que la réduction des émissions se poursuivra dans les secteurs les plus émetteurs au niveau mondial, comme la production d'énergie, l'aviation et l'agriculture. (Cette hypothèse est optimiste, car les émissions augmentent malheureusement encore à l'échelle mondiale).",
+        "item3Content2": "Le calcul considère une quantité minimale d'émissions personnelles annuelles de 20 % par rapport à celle que vous saisissez dans l'entrée. Ce choix est basé sur le fait qu'il existera toujours des sources anthropiques d'émissions inévitables.",
+        "item3Content3": "Différents arbres dans différents endroits absorbent des quantités différentes de CO2. Ce calcul considère une absorption moyenne basée sur la taille des arbres, en supposant que la plupart des arbres plantés sont petits une fois adultes (par exemple, les oliviers) et que certains sont moyens ou grands (par exemple, les chênes ou les séquoias)."
+    },
+    "ReduceEmissionsCarousel": {
+        "item1title": "Énergie 🔆🔋🔌",
+        "item1todo1part1": "Utilisez des énergies renouvelables et poussez les politiciens à investir dans les énergies à faibles émissions (solaire, éolienne, hydraulique, géothermique, nucléaire)",
+        "item1todo2part1": "Réduisez l'énergie que vous utilisez :",
+        "item1todo2part2": "Éteignez les appareils inutilisés (par exemple, téléviseurs, consoles, ordinateurs)",
+        "item1todo2part3": "Ne chauffez pas trop votre maison",
+        "item1todo2part4": "Prenez des douches chaudes plus courtes",
+        "item1todo2part5": "Réduisez l'utilisation de la climatisation",
+        "item1todo2part6": "Utilisez des appareils efficaces",
+        "item1todo2part7": "Faites des machines à laver moins souvent et plus pleines",
+        "item2title": "Mobilité 🌳🚴‍♂️🌳",
+        "item2todo1part1": "Utilisez les trains, les vélos, marchez, utilisez des voitures électriques et des ferries.",
+        "item2todo2part1": "Ne prenez pas trop l'avion (surtout pour les courtes distances), utilisez moins votre voiture et achetez des voitures aérodynamiques et légères (Oui, désolé, un SUV n'est pas léger et généralement pas aérodynamique !)",
+        "item3title": "Alimentation 🍄‍🟫🥕🥔",
+        "item3todo1part1": "Mangez des légumes, des graines, des légumineuses, des œufs, des moules (et tous les bivalves).",
+        "item3todo2part1": "Consommez de la viande rouge au maximum deux fois par semaine. Si vous avez vraiment besoin de viande, préférez la viande blanche. Évitez également le fromage de vache et la surconsommation de fromage.",
+        "item3todo3part1": "Évitez la surconsommation de poisson. Une ou deux fois par semaine devrait suffire",
+        "item4title": "Consommation 👎",
+        "item4todo1part1": "Achetez peu de choses, en particulier des produits de qualité",
+        "item4todo2part1": "Essayez de réparer les objets cassés, ou au moins traitez-les avec soin pour qu'ils durent plus longtemps",
+        "item5title": "Politique 🔥",
+        "item5todo1part1": "Votez pour des politiciens qui se soucient de la planète et des gens.",
+        "item5todo2part1": "Soyez un acteur actif du discours politique et des réglementations. Par exemple, proposez des lois avec l'initiative citoyenne de l'UE.",
+        "item5todo2part2": "Consultez l'initiative citoyenne de l'UE",
+        "item6title": "Services ⚡🔎💸",
+        "item6todo1part1": "Utilisez des solutions d'énergie intelligente comme 1Komma5.",
+        "item6todo1part2": "Allez sur 1Komma5",
+        "item6todo2part1": "Utilisez le moteur de recherche Ecosia. Vous cherchez et ils plantent des arbres gratuitement !",
+        "item6todo2part2": "Allez sur Ecosia",
+        "item6todo3part1": "Passez à des alternatives bancaires durables, un bon exemple est la banque Tomorrow, qui utilise une partie de ses revenus pour des projets et des investissements propres, jetez-y un œil !",
+        "item6todo3part2": "Allez sur Tomorrow",
+        "item7title": "Rejoignez-nous et faites un don à des organisations à but non lucratif 🌳",
+        "item7todo1part1": "Envisagez de faire un don à des organisations à but non lucratif et rejoignez-nous chez Carbon Negative, soyez un activiste, aidez la nature et luttez contre le changement climatique. Vous pouvez nous contacter sur Facebook ou Instagram et demander : comment puis-je aider ?"
+    },
+    "calculatorSchema": {
+        "ageRequiredError": "L'âge est requis.",
+        "ageInvalidTypeError": "L'âge est requis et doit être un nombre.",
+        "ageMinError": "Votre âge doit être d'au moins {min} ans.",
+        "ageMaxError": "Votre âge doit être inférieur à {max} ans.",
+        "treesMinError": "Le nombre d'arbres doit être supérieur à {min}",
+        "yearlyEmissionsMinError": "Le nombre de tonnes d'émissions de CO2 doit être supérieur à {min}"
+    },
+    "common": {
+        "backToCalculator": "Retour au calculateur"
+    },
+    "metadata": {
+        "title": "Co2ToTrees par Carbone Négatif",
+        "description": "Vérifiez combien d'arbres et combien de temps il faut pour compenser vos émissions de CO2.",
+        "keywords": "Plantation d'arbres, changement climatique, compensation de CO2, carbone négatif, calculateur d'absorption des émissions des arbres"
+    }
+}

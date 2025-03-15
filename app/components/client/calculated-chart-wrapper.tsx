@@ -40,7 +40,7 @@ export default memo(function CalculatedChartWrapper({ backToCalculator, data } :
             </span>
          </CardTitle>
          <CardDescription className="text-md">
-            <div className="text-xl my-5 pl-6">
+            <div className="text-xl my-5">
                {stats.yearsToBecomeCarbonNegative ? 
                   t('cardDescriptionOption1', { 
                      yearUserWillBeCarbonNegative: (new Date()).getFullYear() + stats.yearsToBecomeCarbonNegative,
@@ -55,7 +55,7 @@ export default memo(function CalculatedChartWrapper({ backToCalculator, data } :
             </Link>
          </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2 sm:px-6">
          <ChartCard title={t('cumulativeEmissionsChartTitle')} chart={<EmissionsChart stats={stats} />} />
          <ChartCard title={t('absorbedEmissionsChartTitle')} chart={<EmissionsAbsorbtionChart stats={stats} />} />
       </CardContent>

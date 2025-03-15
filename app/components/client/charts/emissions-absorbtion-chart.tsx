@@ -7,12 +7,14 @@ import { ChartLegend, ChartLegendContent } from "@/components/ui/chart";
 import { StatisticsResult } from "@/lib/types";
 import { useTranslations } from "next-intl";
 import { EMISSIONS_ABSORBTION_CHART } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 type Props = {
     stats: StatisticsResult;
+    className?: string;
 }
 
-export function EmissionsAbsorbtionChart({ stats } : Props) {
+export function EmissionsAbsorbtionChart({ stats, className = "" } : Props) {
   const t = useTranslations('EmissionsAbsorbtionChart');
 
   const chartConfig = {
@@ -33,7 +35,7 @@ export function EmissionsAbsorbtionChart({ stats } : Props) {
       cumulativeAbsorbedByCarbonSinks: Math.round(stats.cumulativeYearlyEmissionsAbsorbedByCarbonSinks[index])
   }));
 
-  return <ChartContainer config={chartConfig} className="h-[300px] w-full">
+  return <ChartContainer config={chartConfig} className={cn(className,"h-[300px] w-full")}>
       <BarChart accessibilityLayer data={chartData}>
           <CartesianGrid vertical={false} />
           <XAxis

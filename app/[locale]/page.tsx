@@ -11,7 +11,7 @@ export default function Home() {
     <PageDescription title={t('title')} subTitle={t('subTitle')}/>
     <section className="flex flex-col items-center">
       <Co2ToTreeCalculatorCard />
-      <CalculatorDetails className={"my-10 w-4/5 lg:w-3/5 lg:w-2/5"}/>
+      <CalculatorDetails className={"my-10 w-9/10 sm:w-4/5 lg:w-3/5 lg:w-2/5"}/>
     </section>
   </>;
 }

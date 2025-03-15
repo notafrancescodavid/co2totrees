@@ -9,8 +9,13 @@ import {
 import { CarouselItemType } from '@/lib/types'
 import { useTranslations } from "next-intl";
 import TodoItem from "./todo-item";
+import { cn } from "@/lib/utils";
 
-export function ReduceEmissionsCarousel() {
+type Props = {
+  className?: string;
+};
+
+export function ReduceEmissionsCarousel({ className = "" }: Props) {
     const t = useTranslations('ReduceEmissionsCarousel');
     const items = getItems<typeof t>(t);
 
@@ -18,7 +23,7 @@ export function ReduceEmissionsCarousel() {
       opts={{
         align: "start",
       }}
-      className="w-4/5"
+      className={cn(className, "w-4/5")}
     >
       <CarouselContent>
         {items.map((item, index) => (
